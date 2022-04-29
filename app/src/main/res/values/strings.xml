@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TIP APP</string>
+    <string name="thanks_msg">THANK YOU...</string>
+    <string name="hint_amount">Enter Amount...</string>
+    <string name="hint_tip">Enter Tip %...</string>
+    <string name="cal_tip">CALCULATE TIP</string>
+</resources>
