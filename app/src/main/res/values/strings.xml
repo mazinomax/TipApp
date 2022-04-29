@@ -4,4 +4,5 @@
     <string name="hint_amount">Enter Amount...</string>
     <string name="hint_tip">Enter Tip %...</string>
     <string name="cal_tip">CALCULATE TIP</string>
+    <string name="shw_tip">SHOW TIP</string>
 </resources>

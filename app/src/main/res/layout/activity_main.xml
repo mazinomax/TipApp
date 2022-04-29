@@ -56,11 +56,11 @@
 
     <Button
         android:id="@+id/CalcTipButton"
-        android:layout_width="235dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:text="@string/cal_tip"
-        android:textAlignment="center"
         android:fontFamily="sans-serif-black"
+        android:text="@string/shw_tip"
+        android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
