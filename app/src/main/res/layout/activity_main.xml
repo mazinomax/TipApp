@@ -10,20 +10,22 @@
         android:id="@+id/tipID"
         android:layout_width="match_parent"
         android:layout_height="43dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="36dp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enterpercentID" />
+        app:layout_constraintTop_toBottomOf="@+id/seekBarID" />
 
     <TextView
         android:id="@+id/totalID"
         android:layout_width="match_parent"
         android:layout_height="39dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="44dp"
+        android:textSize="24sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tipID" />
@@ -33,26 +35,13 @@
         android:layout_width="match_parent"
         android:layout_height="43dp"
         android:layout_marginTop="52dp"
-        android:ems="10"
+        android:ems="@integer/ems"
         android:hint="@string/hint_amount"
-        android:inputType="textPersonName"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/enterpercentID"
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:layout_marginTop="40dp"
-        android:ems="10"
-        android:hint="@string/hint_tip"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enteramountID" />
 
     <Button
         android:id="@+id/CalcTipButton"
@@ -68,5 +57,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/totalID"
         app:layout_constraintVertical_bias="0.152" />
+
+    <SeekBar
+        android:id="@+id/seekBarID"
+        android:layout_width="260dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="32dp"
+        android:max="40"
+        app:layout_constraintBottom_toTopOf="@+id/tipID"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/TipPercentID"
+        app:layout_constraintTop_toBottomOf="@+id/enteramountID" />
+
+    <TextView
+        android:id="@+id/TipPercentID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:text="@string/zeroPer"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tipID"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enteramountID" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
