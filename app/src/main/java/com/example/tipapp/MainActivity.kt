@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         var initialTip = 10
         seekBarID.progress = initialTip
         TipPercentID.text = "$initialTip%"
+        tipDesc(initialTip)
 
 
 
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity() {
                 Log.d("seekbar","SUCCESS: $progress")
                 TipPercentID.text = "$progress%"
                 calcTip()
+                tipDesc(progress)
 
 
 
@@ -62,63 +64,20 @@ class MainActivity : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {
                 Log.d("TeXT ", "SUCCESS TEXT CHANGED: $s")
                 calcTip()
+
             }
 
-        })
+        }) }
 
 
-
-
-//     CalcTipButton.setOnClickListener {
-//
-//         try {
-//
-//             if (!TextUtils.isEmpty(amount.toString()) && !TextUtils.isEmpty(tip.toString())) {
-//
-//                 amount = enteramountID.text.toString().toInt()
-//                 tip = enterpercentID.text.toString().toInt()
-//
-//                 result =
-//                     (tip!!.toDouble() * amount!!.toDouble() * percentage.toString().toDouble()).toInt()
-//                 tipID.text = "You have a $tip% Tip worth $result."
-//                 totalID.text = "You have Received a Total of ${result!! + amount!!}."
-//
-//             } else if (!TextUtils.isEmpty(amount.toString()) && TextUtils.isEmpty(tip.toString())){
-//             Toast.makeText(this, "Please Enter Tip...", Toast.LENGTH_LONG).show()
-//             return@setOnClickListener
-//         } else if (TextUtils.isEmpty(amount.toString()) && !TextUtils.isEmpty(tip.toString())){
-//             Toast.makeText(this, "Please Enter Amount...", Toast.LENGTH_LONG).show()
-//
-//         }
-//
-//         } catch (e:Exception) {
-//             Toast.makeText(this, "Please Enter Tip or Amount...", Toast.LENGTH_LONG).show()
-//         }
-//
-
-// else if (enterpercentID.text.toString().length() == 0){
-//             Toast.makeText(this, "Please Enter Tip...", Toast.LENGTH_LONG).show()
-//             return@setOnClickListener
-//         } else if (enteramountID.text.toString().length() == 0){
-//             Toast.makeText(this, "Please Enter Amount...", Toast.LENGTH_LONG).show()
-//
-//         }
-//
-////         } else if ( !TextUtils.isEmpty(amount.toString()) && TextUtils.isEmpty(tip.toString())) {
-//                Toast.makeText(this,"Please Enter Tip...",Toast.LENGTH_LONG).show()
-//
-//            } else if ( TextUtils.isEmpty(amount.toString()) && !TextUtils.isEmpty(tip.toString())){
-//
-//             Toast.makeText(this,"Please Enter Amount...",Toast.LENGTH_LONG).show()
-//         }
-
-
-   //  }
-
-
-
-    }
     fun calcTip(){
+        if (enteramountID.text.isEmpty()){
+            tipID.text = ""
+            totalID.text = ""
+            return
+        }
+
+
         var amount = enteramountID.text.toString().toDouble()
         var tip_percent = seekBarID.progress
 
@@ -127,13 +86,22 @@ class MainActivity : AppCompatActivity() {
 
         // update the u.i
 
-        tipID.text = tip_percent.toString()
+        tipID.text = "%.2f".format(tipAmt)
 
-        totalID.text = totalResult.toString()
-
-
+        totalID.text = "%.2f".format(totalResult) }
 
 
+    fun tipDesc(tips:Int){
+
+        var s =  when (tips) {
+            in 0..9 -> "Poor"
+            in 10..15 -> "Good"
+            in 16 ..25 -> "Amazing"
+            in 26 ..30 -> "Welldone"
+            else -> "Excellent"
+        }
+
+        tvTiprevID.text = s
 
     }
 
