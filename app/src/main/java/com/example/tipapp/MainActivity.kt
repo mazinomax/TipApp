@@ -72,9 +72,13 @@ class MainActivity : AppCompatActivity() {
 
     fun calcTip(){
         if (enteramountID.text.isEmpty()){
+
             tipID.text = ""
+
             totalID.text = ""
+            Toast.makeText(this,"Please Enter Amount...",Toast.LENGTH_LONG).show()
             return
+            
         }
 
 
